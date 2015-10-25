@@ -66,10 +66,38 @@ header {
   padding: 5% 0;
 }
 
+.new-letter {
+  clear: right;
+  max-width: 70%;
+  margin: 0 auto;
+  padding: 5% 0;
+  font-size: 1.2em;
+}
+
+.new-letter-close {
+  float: right;
+  text-align: left;
+}
+
+.new-letter-close h3 {
+  margin: 0.1em 0;
+}
+
+h3.new-love {
+  margin: 0.5em 0 0 0;
+}
+
 .original {
   margin-bottom: 0.3em;
   font-size: 0.8em;
   text-align: right;
+}
+
+.new-letter-attribution {
+  position: absolute;
+  bottom: 0;
+  right: 2%;
+  font-size: 0.8em;
 }
 
 .love {

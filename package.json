@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/jennz0r/dear-airbnb",
   "dependencies": {
+    "body-parser": "^1.14.1",
     "ejs": "^2.3.4",
     "escape-html": "^1.0.3",
     "express": "^4.13.3",
