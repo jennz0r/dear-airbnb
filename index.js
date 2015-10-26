@@ -13,7 +13,7 @@ app.use(bodyParser.urlencoded({
 
 AWS.config.update({
   region: "us-west-2",
-  endpoint: "http://localhost:8000"
+  endpoint: "dynamodb.us-west-2.amazonaws.com"
 });
 
 var dynamodbDoc = new AWS.DynamoDB.DocumentClient();
@@ -51,12 +51,12 @@ app.post('/', function (req, res) {
     } else {
       console.log("Added item:", JSON.stringify(data, null, 2));
     }
-  });
 
-  res.redirect(key);
+    res.redirect("letter/" + key);
+  });
 });
 
-app.get('/:id', function(req, res) {
+app.get('/letter/:id', function(req, res) {
   var id = req.params.id;
 
   var params = {
@@ -71,13 +71,16 @@ app.get('/:id', function(req, res) {
     if (err) {
       console.error("Unable to query. Error:", JSON.stringify(err, null, 2));
     } else {
-      data.Items.forEach(function(item) {
+      var item = data.Items[0];
+      if (item) {
         res.render('letter', {
           letterText: item.letterText,
           personName: item.personName
         });
-        return;
-      });
+      }
+      else {
+        res.send('this is error.');
+      }
     }
   });
 });
