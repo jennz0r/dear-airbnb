@@ -70,6 +70,7 @@ app.get('/letter/:id', function(req, res) {
   dynamodbDoc.query(params, function(err, data) {
     if (err) {
       console.error("Unable to query. Error:", JSON.stringify(err, null, 2));
+      res.sendFile(__dirname + '/404.html');
     } else {
       var item = data.Items[0];
       if (item) {
@@ -84,6 +85,25 @@ app.get('/letter/:id', function(req, res) {
       }
     }
   });
+});
+
+app.use(function(req, res, next) {
+  res.status(404);
+  
+  // respond with html page
+  if (req.accepts('html')) {
+    res.sendFile(__dirname + '/404.html');
+    return;
+  }
+
+  // respond with json
+  if (req.accepts('json')) {
+    res.send({ error: 'Not found' });
+    return;
+  }
+
+  // default to plain-text. send()
+  res.type('txt').send('Not found');
 });
 
 var server = app.listen(3000, function () {
