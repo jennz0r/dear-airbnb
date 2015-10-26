@@ -24,11 +24,13 @@ app.get('/', function (req, res) {
 
 app.post('/', function (req, res) {
   var data = req.body;
+  var dearPersonName = escape(data.dearPersonName);
   var letterText = escape(data.letterText);
   var personName = escape(data.personName);
 
   var shasum = crypto.createHash('md5');
 
+  shasum.update(dearPersonName);
   shasum.update(letterText);
   shasum.update(personName);
 
@@ -38,6 +40,7 @@ app.post('/', function (req, res) {
     TableName: "dear-airbnb",
     Item: {
       "letterId": key,
+      "dearPersonName": dearPersonName,
       "letterText": letterText,
       "personName": personName,
       "timeCreated": new Date().getTime()
@@ -76,6 +79,7 @@ app.get('/letter/:id', function(req, res) {
       if (item) {
         res.render('letter', {
           letterId: item.letterId,
+          dearPersonName: item.dearPersonName,
           letterText: item.letterText,
           personName: item.personName
         });
@@ -89,7 +93,7 @@ app.get('/letter/:id', function(req, res) {
 
 app.use(function(req, res, next) {
   res.status(404);
-  
+
   // respond with html page
   if (req.accepts('html')) {
     res.sendFile(__dirname + '/404.html');
