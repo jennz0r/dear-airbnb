@@ -80,7 +80,7 @@ app.get('/letter/:id', function(req, res) {
         });
       }
       else {
-        res.send('this is error.');
+        res.sendFile(__dirname + '/404.html');
       }
     }
   });
