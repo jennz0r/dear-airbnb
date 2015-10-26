@@ -93,15 +93,22 @@ h3.new-love {
   text-align: right;
 }
 
-.new-letter-attribution {
-  position: absolute;
-  bottom: 0;
-  right: 2%;
-  font-size: 0.8em;
-}
-
 .love {
   margin: 0.5em 0;
+}
+
+.share-options {
+  position: absolute;
+  bottom: 1%;
+  left: 2%;
+  display: block;
+}
+
+.new-letter-attribution {
+  position: absolute;
+  bottom: 2%;
+  right: 3%;
+  font-size: 0.8em;
 }
 
 @media screen and (max-width: 600px) {

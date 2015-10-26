@@ -74,6 +74,7 @@ app.get('/letter/:id', function(req, res) {
       var item = data.Items[0];
       if (item) {
         res.render('letter', {
+          letterId: item.letterId,
           letterText: item.letterText,
           personName: item.personName
         });

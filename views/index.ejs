@@ -8,6 +8,9 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <meta property="og:title" content="Dear Airbnb" />
+    <meta property="og:description" content="Letter to Airbnb Generator - Yes on F" />
+
     <link href="/favicon.ico" rel="icon" type="image/x-icon" />
     <link href="/style.css" rel="stylesheet">
   </head>
@@ -20,16 +23,29 @@
     <div class="letter">
       <h1>Dear Airbnb,</h1>
       <form method="post">
-        <textarea name="letterText" placeholder="I'm happy to hear that you paid your taxes this year. I did too! Isn't it awesome? However, I've crunched some numbers and I have some bad news for you. Out of your $12 mil of hotel tax, only 1.4% percent goes to the SF Public Libraries. So that's $168,000. Divided by the 868 library staff, we have $193 per person. Assuming each employee works 5 days per week minus holidays, this is $0.78 per employee per day. Since that's significantly under San Francisco minimum wage ($12.25/hr), I doubt that your hotel tax can keep the libraries open more than a minute or two later.
+        <textarea required name="letterText" placeholder="I'm happy to hear that you paid your taxes this year. I did too! Isn't it awesome? However, I've crunched some numbers and I have some bad news for you. Out of your $12 mil of hotel tax, only 1.4% percent goes to the SF Public Libraries. So that's $168,000. Divided by the 868 library staff, we have $193 per person. Assuming each employee works 5 days per week minus holidays, this is $0.78 per employee per day. Since that's significantly under San Francisco minimum wage ($12.25/hr), I doubt that your hotel tax can keep the libraries open more than a minute or two later.
 
 However, had you donated that $8 million you spent fighting Proposition F directly to the public libraries you love so much, that could have made a bigger difference. Oh well. Hindsight is 20/20!" autofocus></textarea>
         <p class="original"><a href="https://www.facebook.com/photo.php?fbid=10100700506082939&set=a.626401026109.2203111.94803916&type=3" target="_blank">The Original Martha Kenney Letter</a></p>
         <h2 class="love">Love,</h2>
-        <input type="text" name="personName" placeholder="Martha Kenney" class="center-vertically">
+        <input required type="text" name="personName" placeholder="Martha Kenney" class="center-vertically">
         <button type="submit" name="makeLetter" class="center-vertically">Make My Letter</button>
       </form>
     </div>
-    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
-    <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    
+    <div class="share-options">
+      <a href="https://twitter.com/share" class="twitter-share-button" data-text="My open letter to @Airbnb!" data-hashtags="YesonF">Tweet</a>
+      <div class="fb-share-button" data-href="http://dear-airbnb.com/" data-layout="button_count"></div>
+    </div>
+
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.5";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
   </body>
 </html>
