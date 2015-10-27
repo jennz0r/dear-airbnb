@@ -117,8 +117,16 @@ h3.new-love {
 }
 
 @media screen and (max-width: 600px) {
+  .letter {
+    padding: 2.5% 0;
+  }
+
   button {
     float: none;
-    margin: 1.5em auto 0 auto;
+    margin: 1em auto 0 auto;
+  }
+
+  .dear input {
+    max-width: 50%;
   }
 }
