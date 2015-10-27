@@ -21,7 +21,7 @@
       </div>
     </header>
     <div class="letter">
-      <form method="post">
+      <form method="post" novalidate>
         <div class="dear">
           <h1>Dear
           <input required type="text" name="dearPersonName" placeholder="Airbnb" value="Airbnb" class="center-vertically">&nbsp;,</h1>
@@ -32,7 +32,10 @@ However, had you donated that $8 million you spent fighting Proposition F direct
         <p class="original"><a href="https://www.facebook.com/photo.php?fbid=10100700506082939&set=a.626401026109.2203111.94803916&type=3" target="_blank">The Original Martha Kenney Letter</a></p>
         <h2 class="love">Love,</h2>
         <input required type="text" name="personName" placeholder="Martha Kenney" class="center-vertically">
-        <button type="submit" name="makeLetter" class="center-vertically">Make My Letter</button>
+        <div class="button-error-container">
+          <button type="submit" name="makeLetter" class="center-vertically">Make My Letter</button>
+          <span class="error-message">Please fill out all form fields!</span>
+        </div>
       </form>
     </div>
     
@@ -41,6 +44,26 @@ However, had you donated that $8 million you spent fighting Proposition F direct
       <div class="fb-share-button" data-href="http://dear-airbnb.com/" data-layout="button_count"></div>
     </div>
 
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script>
+      $(document).ready(function() {
+        $('form').on('submit', function(event) {
+          if (!event.target.checkValidity()) {
+            event.preventDefault();
+            $('.error-message').show();
+          }
+        });
+
+        $('input').on('focus', function() {
+          $('.error-message').hide();
+        });
+
+        $('textarea').on('focus', function() {
+          $('.error-message').hide();
+        });
+      });
+    </script>
     <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
     <div id="fb-root"></div>
     <script>(function(d, s, id) {
